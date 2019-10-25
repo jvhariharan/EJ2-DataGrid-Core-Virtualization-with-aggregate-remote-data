@@ -1,0 +1,36 @@
+<template>
+    <div>
+        <ejs-grid ref="grid"
+                  :dataSource="data"
+                  allowSorting="true"
+                  height=300 :enableVirtualization=true>
+            <e-columns>
+                <e-column field="orderID" headerText="Order ID" textAlign="Right" width="100"></e-column>
+                <e-column field="shipCountry" width="100"></e-column>
+                <e-column field="shipAddress" width="100"></e-column>
+                <e-column field="shipName" width="100"></e-column>
+                <e-column field="freight" width="100"></e-column>
+                <e-column field="shipCity" width="100"></e-column>
+            </e-columns>
+            <e-aggregates>
+                <e-aggregate>
+                    <e-columns>
+                        <e-column type="Sum" field="freight" format="C2">
+                        </e-column>
+                    </e-columns>
+                </e-aggregate>
+                <e-aggregate>
+                    <e-columns>
+                        <e-column type="Average" field="freight" format="C2">
+                        </e-column>
+                    </e-columns>
+                </e-aggregate>
+            </e-aggregates>
+        </ejs-grid>
+    </div>
+</template>
+
+<script src="./fetchdata.ts"></script>
+<style>
+    @import "https://cdn.syncfusion.com/ej2/material.css";
+</style>
